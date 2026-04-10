@@ -4,7 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Mahjong Slash (切牌) — an arcade reflex game where mahjong tiles float across the screen and players slash valid pairs/sequences with swipe gestures. Fruit Ninja meets mahjong tile-matching. Built with Kotlin + Jetpack Compose Canvas (no game engine dependency).
+Mahjong Slice (切牌) — a calmer, precision-focused variant of Mahjong Slash. Same core engine: mahjong tiles float across the screen and players slash valid pairs/sequences with swipe gestures. Built with Kotlin + Jetpack Compose Canvas (no game engine dependency).
+
+**Variant relationship:** Forked from `/Users/stanley/mahjong-slash` on 2026-04-10. Package `com.mahjongslice` (installs alongside `com.mahjongslash`). Two intentional differences from Slash:
+1. **Jade & Bamboo palette** instead of Ink & Ivory (see Theme section)
+2. **~20% calmer difficulty curve** in `DifficultyScaler.kt` — longer spawn intervals, fewer max tiles per tier (4→12 instead of 6→14), lower base speed. Everything else (matching rules, slash detection, scoring, rendering) is identical to Slash.
 
 ## Build & Run
 
@@ -54,9 +58,9 @@ These constraints are critical to the game's architecture:
 4. **Object pooling required** for particles, fragments, trail points
 5. **Single-threaded engine** — no concurrent mutation of game state
 
-## Theme: Ink & Ivory
+## Theme: Jade & Bamboo
 
-Dark warm backgrounds (#1A1714, never pure black), ivory tile faces (#F2E8D5), gold accents (#C49B40), red stamps (#B44033), ink brown (#2C2419). Never blue-grey shadows. See `ui/theme/Color.kt`.
+Deep jade backgrounds (#141E1A, never pure black), aged bamboo tile faces (#EDE4C8), jade-green accents (#6FA88A), bamboo-brown stamps (#8A6E3F), dark jade ink (#1E2720). Warm-leaning green, never cold cyan or blue-grey shadows. See `ui/theme/Color.kt` and `res/values/colors.xml`.
 
 ## MCP Tools
 
@@ -64,5 +68,6 @@ Dark warm backgrounds (#1A1714, never pure black), ivory tile faces (#F2E8D5), g
 
 ## Key Reference Docs
 
-- `CLAUDE-BUILD-PROMPT.md` — Full game specification, visual direction, mechanics
-- `STATUS.md` — Current build state, recent work, testing checklist
+- `CLAUDE-BUILD-PROMPT.md` — Original game specification (inherited from Slash; gameplay mechanics still apply)
+- `STATUS.md` — Inherited from Slash at fork time; **may be out of date for Slice** — treat as historical context, not current state
+- Sibling project: `/Users/stanley/mahjong-slash` — the original Slash build. Check it when you need to compare or backport a fix.
