@@ -23,12 +23,17 @@ android {
         versionName = "1.0.0"
     }
 
+    val releaseStoreFile = localProps.getProperty("storeFile", "")
+    val hasReleaseSigning = releaseStoreFile.isNotBlank()
+
     signingConfigs {
-        create("release") {
-            storeFile = file(localProps.getProperty("storeFile", ""))
-            storePassword = localProps.getProperty("storePassword", "")
-            keyAlias = localProps.getProperty("keyAlias", "")
-            keyPassword = localProps.getProperty("keyPassword", "")
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = file(releaseStoreFile)
+                storePassword = localProps.getProperty("storePassword", "")
+                keyAlias = localProps.getProperty("keyAlias", "")
+                keyPassword = localProps.getProperty("keyPassword", "")
+            }
         }
     }
 
@@ -36,7 +41,9 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            signingConfig = signingConfigs.getByName("release")
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
