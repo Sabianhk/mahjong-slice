@@ -144,12 +144,15 @@ right. Negative space center-right for any title overlay Play Store applies.
 
 ## 11. Privacy policy (link)
 
-`privacy_policy.html` — host this file at any public HTTPS URL and paste
-the URL in Play Console under *App content → Privacy policy*. GitHub Pages,
-a personal site, or a static host all work.
+**Live URL — paste this into Play Console:**
 
-Suggested URL stub if hosted from a personal repo:
-`https://<your-username>.github.io/mahjong-slice/privacy_policy.html`
+```
+https://sabianhk.github.io/mahjong-slice/playstore/privacy_policy.html
+```
+
+Hosted via GitHub Pages from this repo's `main` branch. The source file is
+`playstore/privacy_policy.html`; updates to it on `main` republish
+automatically within ~30 seconds.
 
 Summary: the app makes **zero network requests**, collects **no personal
 data**, has **no analytics**, **no advertising**, and stores high scores +
