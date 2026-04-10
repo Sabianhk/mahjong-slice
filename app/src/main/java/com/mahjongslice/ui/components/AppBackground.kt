@@ -1,5 +1,6 @@
 package com.mahjongslice.ui.components
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,15 +13,11 @@ import androidx.compose.ui.res.painterResource
 import com.mahjongslice.R
 import com.mahjongslice.ui.theme.BackgroundDark
 
-/**
- * Shared background for all UI screens.
- * Draws the dark base color with an ink-wash texture overlay.
- * @param bgAlpha opacity of the background image (1.0 = full, 0.5 = half)
- */
 @Composable
 fun AppBackground(
     modifier: Modifier = Modifier,
     bgAlpha: Float = 1f,
+    @DrawableRes background: Int = R.drawable.bg_menu_texture,
     content: @Composable () -> Unit,
 ) {
     Box(
@@ -29,7 +26,7 @@ fun AppBackground(
             .background(BackgroundDark)
     ) {
         Image(
-            painter = painterResource(R.drawable.bg_menu_texture),
+            painter = painterResource(background),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier

@@ -49,7 +49,7 @@ fun MemoryDifficultyScreen(
     onSelectDifficulty: (MemoryDifficulty) -> Unit,
     onBack: () -> Unit,
 ) {
-    AppBackground {
+    AppBackground(background = com.mahjongslice.R.drawable.bg_memory) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
@@ -164,7 +164,7 @@ fun MemoryGameScreen(
 
     val timeStr = formatTime(state.elapsedMs)
 
-    AppBackground(bgAlpha = 0.55f) {
+    AppBackground(bgAlpha = 0.55f, background = com.mahjongslice.R.drawable.bg_memory) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -384,7 +384,7 @@ fun MemoryResultScreen(
         else -> "初" to "NOVICE"
     }
 
-    AppBackground {
+    AppBackground(background = com.mahjongslice.R.drawable.bg_memory) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center

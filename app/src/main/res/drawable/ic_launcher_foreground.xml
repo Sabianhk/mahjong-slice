@@ -5,21 +5,17 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Tile body -->
     <path
-        android:fillColor="#F2E8D5"
+        android:fillColor="#EDE4C8"
         android:pathData="M30,28h48a4,4 0,0 1,4 4v44a4,4 0,0 1,-4 4h-48a4,4 0,0 1,-4 -4v-44a4,4 0,0 1,4 -4z"/>
-    <!-- Tile edge (depth) -->
     <path
-        android:fillColor="#C4B49A"
+        android:fillColor="#BFB094"
         android:pathData="M32,32h48a4,4 0,0 1,4 4v44a4,4 0,0 1,-4 4h-48a4,4 0,0 1,-4 -4v-44a4,4 0,0 1,4 -4z"/>
-    <!-- Tile face overlay -->
     <path
-        android:fillColor="#F2E8D5"
+        android:fillColor="#EDE4C8"
         android:pathData="M30,28h48a4,4 0,0 1,4 4v44a4,4 0,0 1,-4 4h-48a4,4 0,0 1,-4 -4v-44a4,4 0,0 1,4 -4z"/>
-    <!-- Slash mark -->
     <path
-        android:strokeColor="#B44033"
+        android:strokeColor="#6FA88A"
         android:strokeWidth="3"
         android:strokeLineCap="round"
         android:pathData="M38,70 L70,30"/>

@@ -31,7 +31,7 @@ fun HighScoresScreen(
 ) {
     val scores by preferencesManager.highScores.collectAsState(initial = emptyList())
 
-    AppBackground {
+    AppBackground(background = com.mahjongslice.R.drawable.bg_scores) {
         Column(
             modifier = Modifier
                 .fillMaxSize()

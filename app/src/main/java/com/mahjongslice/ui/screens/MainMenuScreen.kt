@@ -46,7 +46,7 @@ fun MainMenuScreen(
     val highScores by preferencesManager.highScores.collectAsState(initial = emptyList())
     val highScore = highScores.firstOrNull() ?: 0
 
-    AppBackground {
+    AppBackground(background = com.mahjongslice.R.drawable.bg_main_menu) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -125,7 +125,7 @@ fun MainMenuScreen(
             // Primary game mode buttons — prominent cards
             GameModeButton(
                 kanji = "遊",
-                label = "SLASH",
+                label = "SLICE",
                 icon = "⚔",
                 isPrimary = true,
                 onClick = onPlay,

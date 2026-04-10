@@ -33,7 +33,7 @@ fun GameOverScreen(
 ) {
     val grade = gradeForScore(score)
 
-    AppBackground {
+    AppBackground(background = com.mahjongslice.R.drawable.bg_game_over) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center

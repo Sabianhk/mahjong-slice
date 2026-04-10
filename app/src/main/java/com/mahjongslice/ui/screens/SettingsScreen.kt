@@ -36,7 +36,7 @@ fun SettingsScreen(
     val leftHanded by preferencesManager.leftHanded.collectAsState(initial = false)
     val scope = rememberCoroutineScope()
 
-    AppBackground {
+    AppBackground(background = com.mahjongslice.R.drawable.bg_settings) {
         Column(
             modifier = Modifier
                 .fillMaxSize()

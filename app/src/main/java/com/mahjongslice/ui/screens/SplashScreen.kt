@@ -50,7 +50,7 @@ fun SplashScreen(onTap: () -> Unit) {
 
             // Subtitle
             Text(
-                text = "MAHJONG SLASH",
+                text = "MAHJONG SLICE",
                 style = TextStyle(
                     color = WarmWhite.copy(alpha = 0.5f),
                     fontSize = 16.sp,
