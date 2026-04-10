@@ -7,28 +7,24 @@
 
 ## 1. APK file
 
-`mahjong-slice-1.0.0-unsigned.apk` — 6.9 MB, release build, ProGuard +
-resource shrinking enabled. **Unsigned** because no upload keystore is
-configured in `local.properties`. Two paths to a signed artifact:
+`mahjong-slice-1.0.0.apk` — 6.9 MB, release build, ProGuard + resource
+shrinking enabled, **signed** with the upload key in
+`mahjong-slice-upload.jks`. Verified via `apksigner verify` (APK Signature
+Scheme v2, single signer).
 
-- **Recommended:** upload the AAB below and let Play App Signing manage the
-  signing key. You only need to provide an *upload* key.
-- **Manual:** generate a keystore once with
-  `keytool -genkey -v -keystore mahjong-slice.jks -keyalg RSA -keysize 2048 -validity 10000 -alias slice`,
-  then add to `local.properties`:
-  ```
-  storeFile=../mahjong-slice.jks
-  storePassword=...
-  keyAlias=slice
-  keyPassword=...
-  ```
-  and rerun `./gradlew assembleRelease`. The release config in
-  `app/build.gradle.kts` already wires this up behind a guard.
+Signing certificate:
+- **DN:** `CN=Mahjong Slice, OU=Sabianhk, O=Sabianhk, L=Hong Kong, ST=Hong Kong, C=HK`
+- **SHA-256:** `155f8cfa4f04ab57aff75708e1730e39b4222441aa2efe8c0cdca262a239b6ae`
+- **SHA-1:** `cf947cef6c1a91330e3d5c132ba4282a05da6c1b`
+
+The keystore + passwords are documented in `KEYSTORE_SECRETS.txt` (repo
+root, gitignored). **Back this file up** — see the warning in that file.
 
 ## 2. App Bundle file (AAB format)
 
-`mahjong-slice-1.0.0.aab` — 9.4 MB. This is the artifact to upload to
-Play Console. Same signing caveat as #1.
+`mahjong-slice-1.0.0.aab` — 9.4 MB, signed with the same upload key.
+**This is the artifact to upload to Play Console** (Internal testing,
+Closed testing, or Production track).
 
 ## 3. App name
 
@@ -206,4 +202,5 @@ change is needed.
 - `targetSdk`: 35 (Android 15)
 - `compileSdk`: 35
 - ProGuard + resource shrinking: **enabled** for release
-- Signing: **upload key required** before publishing (see #1)
+- Signing: **signed with upload key** (PKCS12, RSA 2048, valid 10,000 days)
+- Signing cert SHA-256: `155f8cfa4f04ab57aff75708e1730e39b4222441aa2efe8c0cdca262a239b6ae`
